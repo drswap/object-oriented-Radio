@@ -1,27 +1,38 @@
 package ru.netology.object.oriented.Radio;
 
 public class Radio {
-    private int currentStationNumber; //текущий номер радиостанции
-    private int currentVolume;
+    private int minStationNumber = 0; //минимальный номер станции
+    private int numberStations = 10; //количество станций
+    private int maxStationNumber = numberStations + minStationNumber - 1; //максимальный номер станции
+    private int currentRadioStationNumber; //текущий номер радиостанции
+    private int currentVolume; //текущий уровень громкости звука
 
-    public int getCurrentStationNumber() { //отдать текущий номер радиостанции
+    public Radio(int numberOfStations) {
+        this.numberStations = numberOfStations;
+        this.maxStationNumber = this.numberStations - 1;
+    }
 
-        return currentStationNumber;
+    public Radio() {
+
+    }
+
+
+    public int getCurrentRadioStationNumber() { //отдать текущий номер радиостанции
+        return currentRadioStationNumber;
     }
 
     public int getCurrentVolume() { //отдать текущий уровень громкости звука
-
         return currentVolume;
     }
 
-    public void setCurrentStationNumber(int newCurrentStationNumber) { //установить новый текущий номер радиостанции
-        if (newCurrentStationNumber < 0) {
-            newCurrentStationNumber = 9;
+    public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) { //установить новый текущий номер радиостанции
+        if (newCurrentRadioStationNumber < minStationNumber) {
+            newCurrentRadioStationNumber = maxStationNumber;
         }
-        if (newCurrentStationNumber > 9) {
-            newCurrentStationNumber = 0;
+        if (newCurrentRadioStationNumber > maxStationNumber) {
+            newCurrentRadioStationNumber = minStationNumber;
         }
-        currentStationNumber = newCurrentStationNumber;
+        currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {//установить уровень громкости
@@ -35,23 +46,23 @@ public class Radio {
     }
 
     public void next1ChannelNumber() {
-        int next = getCurrentStationNumber() + 1;
-        setCurrentStationNumber(next);
+        int next = getCurrentRadioStationNumber() + 1;
+        setCurrentRadioStationNumber(next);
     }
 
     public void prev1ChannelNumber() {
-        int prev = getCurrentStationNumber() - 1;
-        setCurrentStationNumber(prev);
+        int prev = getCurrentRadioStationNumber() - 1;
+        setCurrentRadioStationNumber(prev);
     }
 
-    public void setTheStationNumber(int newCurrentStationNumber) {//установить номер станции в диапазоне от 0 до 9
-        if (newCurrentStationNumber < 0) {
+    public void setTheRadioStationNumber(int newCurrentRadioStationNumber) {//установить номер станции в диапазоне от 0 до 9
+        if (newCurrentRadioStationNumber < minStationNumber) {
             return;
         }
-        if (newCurrentStationNumber > 9) {
+        if (newCurrentRadioStationNumber > maxStationNumber) {
             return;
         }
-        currentStationNumber = newCurrentStationNumber;
+        currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
     public void increaseVolume() {
