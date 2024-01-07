@@ -14,6 +14,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);//сравнение ОР и ФР
     }
+
     @Test
     public void channeOflNumber() {               //установить текущий номер радиостанции
         Radio channel = new Radio(6);              //новый объект Radio
@@ -35,6 +36,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);//сравнение ОР и ФР
     }
+
     @Test
     public void channelOfNumberLowerBound() {               //установить текущий номер радиостанции нижняя граница
         Radio channel = new Radio(1);              //новый объект Radio
@@ -56,6 +58,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);//сравнение ОР и ФР
     }
+
     @Test
     public void channelOfNumberUpperBound() {               //установить текущий номер радиостанции верхняя граница
         Radio channel = new Radio(56);              //новый объект Radio
@@ -76,6 +79,7 @@ public class RadioTest {
         int actual = channel.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNotOfSetStationNumberAboveMax() {//установить текущий номер радиостанции выше максимального
         Radio channel = new Radio(15);
@@ -95,6 +99,7 @@ public class RadioTest {
         int actual = channel.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNotOfSetStationNumberAboveMin() {//установить текущий номер радиостанции ниже минимального
         Radio channel = new Radio(-4);
@@ -115,6 +120,7 @@ public class RadioTest {
         int actual = channel.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void nextOfChannel() {                      //установить текущий номер на следующий номер
         Radio channel = new Radio(100);
@@ -136,6 +142,7 @@ public class RadioTest {
         int actual = channel.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void nextOfChannelCarousel() {                      //установить текущий номер на следующий номер по карусели
         Radio channel = new Radio(50);
@@ -157,6 +164,7 @@ public class RadioTest {
         int actual = channel.getCurrentRadioStationNumber();
         Assertions.assertEquals(expected, channel.getCurrentRadioStationNumber());
     }
+
     @Test
     public void prevOfChannel() {                      //установить текущий номер на предыдущий номер
         Radio channel = new Radio(90);
@@ -176,6 +184,7 @@ public class RadioTest {
 
         Assertions.assertEquals(9, channel.getCurrentRadioStationNumber());
     }
+
     @Test
     public void prevOfChannelCarousel() {                      //установить текущий номер на предыдущий номер по карусели
         Radio channel = new Radio(12);

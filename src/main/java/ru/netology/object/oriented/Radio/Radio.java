@@ -8,10 +8,10 @@ public class Radio {
     private int currentVolume; //текущий уровень громкости звука
 
     public Radio(int numberOfStations) {
-       this.numberStations = numberOfStations;
-       this.maxStationNumber = this.numberStations - 1;
+        this.numberStations = numberOfStations;
+        this.maxStationNumber = this.numberStations - 1;
     }
-    
+
     public Radio() {
 
     }
